@@ -4,10 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import PostRow from '../../components/Blog/PostRow.astro';
 
 const posts = (await getCollection('blog'))?.sort(
-  (
-    blogEntryA: { data: { pubDate: any } },
-    blogEntryB: { data: { pubDate: any } }
-  ) =>
+  (blogEntryA, blogEntryB) =>
     (blogEntryB.data.pubDate || new Date()).getTime() -
     (blogEntryA.data.pubDate || new Date()).getTime()
 );
@@ -37,15 +34,13 @@ const posts = (await getCollection('blog'))?.sort(
     <h1 class='text-4xl font-bold mb-4 text-neutral-100'>Posts</h1>
     <ul class='w-full'>
       {
-        posts?.map(
-          (post: { data: { title: any; pubDate: any }; slug: string }) => (
-            <PostRow
-              title={post.data.title || 'No title'}
-              date={post.data.pubDate || new Date()}
-              url={post.slug}
-            />
-          )
-        )
+        posts?.map((post) => (
+          <PostRow
+            title={post.data.title || 'No title'}
+            date={post.data.pubDate || new Date()}
+            url={post.slug}
+          />
+        ))
       }
     </ul>
   </main>

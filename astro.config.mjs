@@ -5,7 +5,6 @@ import robotsTxt from 'astro-robots-txt';
 import UnoCSS from '@unocss/astro';
 import icon from 'astro-icon';
 
-import solidJs from '@astrojs/solid-js';
 import { remarkReadingTime } from './src/lib/ remark-reading-time.mjs';
 
 // https://astro.build/config
@@ -19,7 +18,6 @@ export default defineConfig({
         'https://yzrin.com/sitemap-0.xml',
       ],
     }),
-    solidJs(),
     UnoCSS({ injectReset: true }),
     icon(),
   ],
@@ -28,7 +26,4 @@ export default defineConfig({
   },
   output: 'server',
   adapter: cloudflare(),
-  vite: {
-    assetsInclude: '**/*.riv',
-  },
 });
