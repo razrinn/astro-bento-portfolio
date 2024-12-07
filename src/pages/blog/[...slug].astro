@@ -1,10 +1,10 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  return (await getCollection("blog")).map(({ slug }) => ({
+  return (await getCollection('blog')).map(({ slug }) => ({
     params: { slug },
   }));
 }
@@ -12,10 +12,10 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 
 if (slug === undefined) {
-  throw new Error("slug is missing");
+  throw new Error('slug is missing');
 }
 
-const posts = (await getCollection("blog")).sort(
+const posts = (await getCollection('blog')).sort(
   (blogEntryA, blogEntryB) =>
     (blogEntryB.data.pubDate || new Date()).getTime() -
     (blogEntryA.data.pubDate || new Date()).getTime()
@@ -23,7 +23,7 @@ const posts = (await getCollection("blog")).sort(
 
 const entry = posts.find((entry) => entry.slug === slug);
 if (entry === undefined) {
-  return Astro.redirect("/404");
+  return Astro.redirect('/404');
 }
 
 const { Content } = await entry.render();
@@ -94,7 +94,7 @@ const { Content } = await entry.render();
 
   pre,
   code {
-    font-family: "Courier New", monospace;
+    font-family: 'Courier New', monospace;
     background-color: #f4f4f4;
     border-radius: 5px;
   }

@@ -1,14 +1,14 @@
-import rss from "@astrojs/rss";
-import { getCollection } from "astro:content";
+import rss from '@astrojs/rss';
+import { getCollection } from 'astro:content';
 import sanitizeHtml from 'sanitize-html';
 import MarkdownIt from 'markdown-it';
 const parser = new MarkdownIt();
 
 export async function GET(context) {
-  const blog = await getCollection("blog");
+  const blog = await getCollection('blog');
   return rss({
-    title: "Gianmarco Cavallo’s Blog",
-    description: "my blog",
+    title: 'Ray Azrin Karim’s Blog',
+    description: 'my blog',
     site: context.site,
     items: blog.map((post) => ({
       title: post.data.title,
