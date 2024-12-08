@@ -23,6 +23,11 @@ const { frontmatter } = Astro.props;
   title={`Ray - ${frontmatter.title}`}
   description={frontmatter.description}
 >
+  <div
+    slot='loader'
+    class='loader bg-darkslate-700 text-neutral-50 text-3xl font-black uppercase flex justify-center items-center w-screen h-screen z-50 fixed top-0 bottom-0 right-0 left-0'
+  >
+  </div>
   <main class='mx-auto max-w-3xl w-full h-screen p-8 text-neutral-100'>
     <a
       href='/blog'

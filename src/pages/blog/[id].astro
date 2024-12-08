@@ -17,6 +17,15 @@ if (entry === undefined) {
 const { Content } = await render(entry);
 ---
 
+<script>
+  import { timeline, type TimelineDefinition } from 'motion';
+  import { loaderAnimation } from '../../lib/constants';
+
+  const sequence = [loaderAnimation];
+
+  timeline(sequence as TimelineDefinition);
+</script>
+
 <LayoutBlogPost frontmatter={entry.data}>
   <Content />
 </LayoutBlogPost>
