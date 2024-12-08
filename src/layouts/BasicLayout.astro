@@ -5,12 +5,9 @@ interface Props {
   page?: 'travel' | 'blog';
   slug?: string | undefined;
   frontmatter?: {
-    file: string;
-    url: string | undefined;
-  } & {
     title: string;
     description: string;
-    pubDate: string;
+    pubDate: Date;
     minutesRead: string;
   };
 }

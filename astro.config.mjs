@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import cloudflare from '@astrojs/cloudflare';
 import robotsTxt from 'astro-robots-txt';
 import UnoCSS from '@unocss/astro';
 import icon from 'astro-icon';
@@ -24,6 +23,4 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkReadingTime],
   },
-  output: 'server',
-  adapter: cloudflare(),
 });
