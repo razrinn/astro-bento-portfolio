@@ -5,7 +5,7 @@ import { z } from 'astro/zod';
 
 const blog = defineCollection({
   schema: rssSchema.extend({
-    minutesRead: z.string(),
+    minutesRead: z.string().optional(),
     title: z.string(),
     description: z.string(),
     pubDate: z.date(),
